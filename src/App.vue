@@ -1,5 +1,11 @@
-<template>
-    <div>Base</div>
-</template>
+<script>
+import Layout from "./components/layout/Layout.vue";
 
-<style scoped></style>
+export default {
+    components: { Layout },
+};
+</script>
+
+<template>
+    <layout></layout>
+</template>
