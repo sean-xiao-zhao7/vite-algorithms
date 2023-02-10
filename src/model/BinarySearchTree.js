@@ -1,11 +1,13 @@
-import "./Node";
+import Node from "./Node";
 
 class BinarySearchTree {
-    constructor(root) {
-        this.root = root;
+    constructor(rootValue) {
+        this.root = new Node(rootValue);
     }
 
     insert(node) {}
 
     lookup(node) {}
 }
+
+export default BinarySearchTree;
