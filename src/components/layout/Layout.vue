@@ -10,3 +10,11 @@
         <router-view></router-view>
     </div>
 </template>
+
+<style scoped>
+nav {
+    display: grid;
+    grid-column-gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+}
+</style>
