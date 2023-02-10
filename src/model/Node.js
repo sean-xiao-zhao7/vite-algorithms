@@ -1,8 +1,22 @@
 class Node {
-    constructor(value, next1) {
+    constructor(value) {
         this.value = value;
         this.neighbours = {};
-        this.neighbours.left = next1;
+    }
+
+    addLeft(anotherNode) {
+        this.neighbours.left = anotherNode;
+    }
+
+    addRight(anotherNode) {
+        this.neighbours.right = anotherNode;
+    }
+
+    addChild(anotherNode) {
+        if (!this.neighbours.children) {
+            this.neighbours.children = [];
+            this.neighbours.children.push(anotherNode);
+        }
     }
 }
 
