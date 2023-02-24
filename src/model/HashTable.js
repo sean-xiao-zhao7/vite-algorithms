@@ -17,7 +17,6 @@ export default class HashTable {
 
     set(key, value) {
         const hashedIndex = this._generateHash(key);
-        console.log(hashedIndex);
         this.data[hashedIndex] = value;
     }
 

@@ -5,18 +5,33 @@ export default {
     data() {
         return {
             size: 10,
+            hashTable: null,
+            hashTableData: null,
             key: null,
             value: null,
-            hashTable: new HashTable(10),
         };
+    },
+    mounted() {
+        this.hashTable = new HashTable(this.size);
+        this.hashTableData = this.hashTable.data;
     },
     methods: {
         set() {
             if (this.key && this.value) {
                 this.hashTable.set(this.key, this.value);
+                this.key = null;
+                this.value = null;
             } else {
                 alert("Enter both key and value.");
             }
+        },
+        entryUpdated(domElement) {
+            console.log(domElement);
+        },
+    },
+    watch: {
+        hashTableData(oldHashTableData, newHashTableData) {
+            console.log(newHashTableData);
         },
     },
 };
@@ -32,7 +47,7 @@ export default {
         <div id="hashtable-container">
             <div
                 class="hashtable-entry"
-                v-for="(entryValue, index) in hashTable.data"
+                v-for="(entryValue, index) in hashTableData"
                 :key="index"
             >
                 <div class="entry-key">
