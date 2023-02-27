@@ -17,10 +17,27 @@ export default class HashTable {
 
     set(key, value) {
         const hashedIndex = this._generateHash(key);
-        this.data[hashedIndex] = value;
+        const newEntry = {};
+        newEntry[key] = value;
+        if (!this.data[hashedIndex]) {
+            this.data[hashedIndex] = [newEntry];
+        } else {
+            // collision
+            this.data[hashedIndex].push(newEntry);
+        }
     }
 
     get(key) {
-        return this.data[key];
+        const hashedIndex = this._generateHash(key);
+        const entries = this.data[hashedIndex];
+        if (entries.length === 1) {
+            return entries[0][key];
+        } else {
+            for (let keyEntries in entries) {
+                if (keyEntries === key) {
+                    return entries[keyEntries];
+                }
+            }
+        }
     }
 }

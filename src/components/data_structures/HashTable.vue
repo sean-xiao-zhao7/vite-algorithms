@@ -9,6 +9,9 @@ export default {
             hashTableData: null,
             key: null,
             value: null,
+            getKey: null,
+            getResultKey: null,
+            getResultValue: null,
         };
     },
     mounted() {
@@ -23,6 +26,15 @@ export default {
                 this.value = null;
             } else {
                 alert("Enter both key and value.");
+            }
+        },
+        get() {
+            if (this.getKey) {
+                this.getResultValue = this.hashTable.get(this.getKey);
+                this.getResultKey = this.getKey;
+                this.getKey = null;
+            } else {
+                alert("Enter key.");
             }
         },
         entryUpdated(domElement) {
@@ -43,6 +55,14 @@ export default {
             <input type="text" placeholder="Key" v-model="key" />
             <input type="text" placeholder="Value" v-model="value" />
             <button @click="set">Set</button>
+        </div>
+        <div>
+            <input type="text" placeholder="Key" v-model="getKey" />
+            <button @click="get">Get</button>
+        </div>
+        <div id="getResultContainer" v-if="getResultKey">
+            <p>{{ getResultKey }}:</p>
+            <p>{{ getResultValue }}</p>
         </div>
         <div id="hashtable-container">
             <div
