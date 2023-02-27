@@ -60,7 +60,7 @@ export default {
             <input type="text" placeholder="Key" v-model="getKey" />
             <button @click="get">Get</button>
         </div>
-        <div id="getResultContainer" v-if="getResultKey">
+        <div id="get-result-container" v-if="getResultKey">
             <p>{{ getResultKey }}:</p>
             <p>{{ getResultValue }}</p>
         </div>
@@ -86,7 +86,7 @@ export default {
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 #hashtable-container {
-    padding-top: 2rem;
+    padding-top: 0.5rem;
     border-bottom: solid 1px whitesmoke;
 }
 .hashtable-entry {
@@ -98,5 +98,14 @@ export default {
 }
 .entry-key {
     border-right: solid 1px whitesmoke;
+}
+#get-result-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: whitesmoke;
+    margin-top: 0.5rem;
 }
 </style>
